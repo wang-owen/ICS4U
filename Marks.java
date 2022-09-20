@@ -37,8 +37,8 @@ public class Marks {
             System.out.println(e);
         }
 
+        avg = 0;
         try {
-            avg = 0;
             bw = new BufferedWriter(new FileWriter(result));
             bw.write("Class averages:\n");
             for (int test = 0; test < TESTS; test++) {
@@ -47,7 +47,7 @@ public class Marks {
                 for (int student = 0; student < STUDENTS; student++) {
                     avg += test_scores[student][test];
                 }
-                bw.write(avg);
+                bw.write(avg / STUDENTS + "%\n");
                 avg = 0;
             }
             bw.close();
