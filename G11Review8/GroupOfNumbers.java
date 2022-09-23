@@ -1,5 +1,4 @@
 import java.io.*;
-import java.util.Scanner;
 
 public class GroupOfNumbers {
     public static void main(String[] args) {

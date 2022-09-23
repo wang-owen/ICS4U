@@ -19,12 +19,11 @@ public class Division {
                     System.out.printf("%f / %f is %f\n\n", numerator, divisor, numerator / divisor);
                 }
             } catch (InputMismatchException e) {
-                if ((numerator + "").charAt(0) == 'q') {
+                if (sc.nextLine().charAt(0) == 'q') {
                     run = false;
                 } else {
                     System.out.println("You entered bad data");
                     System.out.println("Try again\n");
-                    sc.nextLine();
                 }
             }
         } while (run);
