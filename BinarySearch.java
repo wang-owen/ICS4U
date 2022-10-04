@@ -72,7 +72,7 @@ public class BinarySearch {
                 r = m - 1;
             }
         }
-        if (item - list[l] < item - list[r]) {
+        if (item - list[l] <= item - list[r]) {
             return list[l];
         }
         return list[r];
