@@ -51,6 +51,40 @@ public class Recursion {
         return n * power(n, p - 1);
     }
 
+    public static void printRow(int n) {
+        if (n < 1) {
+            return;
+        }
+        System.out.print("*");
+        printRow(n - 1);
+    }
+
+    public static void printTriangle(int n) {
+        if (n < 1) {
+            return;
+        }
+        printTriangle(n - 1);
+        for (int i = 0; i < n; i++) {
+            System.out.print("*");
+        }
+        System.out.println();
+    }
+
+    public static int largest(int[] list) {
+        return largest(list, 0, list.length);
+    }
+
+    public static int largest(int[] list, int start, int end) {
+        if (start - end == 1) {
+            return list[start];
+        }
+        if (list[start] < list[end]) {
+
+        }
+    }
+
+
     public static void main(String[] args) {
+        printTriangle(5);
     }
 }
