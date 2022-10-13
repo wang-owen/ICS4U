@@ -70,18 +70,19 @@ public class Recursion {
         System.out.println();
     }
     
-//     public static int largest(int[] list) {
-//         return largest(list, 0, list.length);
-//     }
-// 
-//     public static int largest(int[] list, int start, int end) {
-//         if (start - end == 1) {
-//             return list[start];
-//         }
-//         if (list[start] < list[end]) {
-// 
-//         }
-//     }
+    public static int largest(int[] arr) {
+        return largest(arr, 0, arr.length - 1);
+    }
+
+    private static int largest(int[] arr, int start, int end) {
+        if (start >= end) {
+            return arr[start];
+        }
+        if (arr[start] < arr[end]) {
+            return largest(arr, start + 1, end);
+        }
+        return largest(arr, start, end - 1);
+    }
 
     public static int binarySearch(int[] arr, int x) {
         return binarySearch(arr, x, 0, arr.length - 1);
@@ -104,7 +105,7 @@ public class Recursion {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        System.out.println(binarySearch(arr, 5));
+        int[] arr = {8, 5, 2, 3, 100, 4, 5, 5, 10, 36};
+        System.out.println(largest(arr));
     }
 }
