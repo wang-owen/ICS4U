@@ -69,22 +69,42 @@ public class Recursion {
         }
         System.out.println();
     }
+    
+//     public static int largest(int[] list) {
+//         return largest(list, 0, list.length);
+//     }
+// 
+//     public static int largest(int[] list, int start, int end) {
+//         if (start - end == 1) {
+//             return list[start];
+//         }
+//         if (list[start] < list[end]) {
+// 
+//         }
+//     }
 
-    public static int largest(int[] list) {
-        return largest(list, 0, list.length);
+    public static int binarySearch(int[] arr, int x) {
+        return binarySearch(arr, x, 0, arr.length - 1);
     }
 
-    public static int largest(int[] list, int start, int end) {
-        if (start - end == 1) {
-            return list[start];
+    private static int binarySearch(int[] arr, int x, int l, int r) {
+        int m = (l + r) / 2;
+        while (l <= r) {
+            if (arr[m] == x) {
+                return m;
+            }
+            if (x > arr[m]) {
+                return binarySearch(arr, x, m + 1, r);
+            }
+            else {
+                return binarySearch(arr, x, l, m - 1);
+            }
         }
-        if (list[start] < list[end]) {
-
-        }
+        return -1;
     }
-
 
     public static void main(String[] args) {
-        printTriangle(5);
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        System.out.println(binarySearch(arr, 5));
     }
 }
