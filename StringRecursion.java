@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class StringRecursion {
     public static int length(String s) {
         if (s.isEmpty()) {
@@ -25,7 +27,48 @@ public class StringRecursion {
         }
         return countChar(s.substring(1), c);
     }
-    
+
+    public static boolean isVowel(char x) {
+        char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+        for (char c : vowels) {
+            if (c == x) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean equalsIgnoreVowel(String s1, String s2) {
+        if (s2.isEmpty() && s2.isEmpty()) {
+            return true;
+        }
+
+        // Note: Ask teacher about null values for char
+        char c1 = 0;
+        char c2 = 0;
+        if (!s1.isEmpty()) {
+            c1 = s1.charAt(0);
+        }
+        if (!s2.isEmpty()) {
+            c2 = s2.charAt(0);
+        }
+
+        // Remove vowels from non-empty strings
+        if (c1 != 0 && isVowel(c1)) {
+            return equalsIgnoreVowel(s1.substring(1), s2);
+        }
+        if (c2 != 0 && isVowel(c2)) {
+            return equalsIgnoreVowel(s1, s2.substring(1));
+        }
+
+        // The current first characters of the two arrays are not vowels; compare chars
+        if (c1 == c2) {
+            return equalsIgnoreVowel(s1.substring(1), s2.substring(1));
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
+        System.out.println(equalsIgnoreVowel("kangaroo", "kongeroo"));
     }
 }
