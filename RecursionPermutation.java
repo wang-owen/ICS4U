@@ -19,8 +19,12 @@ public class RecursionPermutation {
 
     public static void patternGenerator() {
         Scanner sc = new Scanner(System.in);
-        for (int i = 0; i < sc.nextInt(); i++) {
-            patternGenerator(sc.nextInt(), sc.nextInt(), "");
+        int in = sc.nextInt();
+        for (int i = 0; i < in; i++) {
+            int n = sc.nextInt();
+            int k = sc.nextInt();
+            System.out.println("The bit patterns are");
+            patternGenerator(n, k, "");
         }
         sc.close();
     }
@@ -36,17 +40,7 @@ public class RecursionPermutation {
         }
     }
 
-    public static void t(int n, int k, String s) {
-        if (n == 0) {
-            if (k == 0) {
-                System.out.println(s);
-            }
-            return;
-        }
-        t(n - 1, k - 1, s + '1');
-        t(n - 1, k, s + '0');
-    }
-
     public static void main(String[] args) {
+        patternGenerator();
     }
 }
