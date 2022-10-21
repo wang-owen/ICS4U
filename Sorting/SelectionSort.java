@@ -44,7 +44,5 @@ public class SelectionSort {
     }
 
     public static void main(String args[]) {
-        String[] arr = { "Renee", "Brien", "Vincent", "Doris", "Scarlett" };
-        selectionSortString(arr);
     }
 }
