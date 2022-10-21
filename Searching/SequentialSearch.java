@@ -1,6 +1,3 @@
-import java.util.Random;
-import java.util.Scanner;
-
 public class SequentialSearch {
     public static int seqSearch(String[] list, String item) {
         for (int i = 0; i < list.length; i++) {
@@ -34,23 +31,5 @@ public class SequentialSearch {
     }
 
     public static void main(String[] args) {
-        int n;
-        Random rand = new Random();
-        Scanner sc = new Scanner(System.in);
-
-        int[] list = new int[20];
-
-        for (int i = 0; i < list.length; i++) {
-            list[i] = rand.nextInt(1, 50);
-        }
-
-        System.out.println(seqSearch2(list, 10));
-
-        do {
-            System.out.println("\nEnter int (0 to quit): ");
-            n = sc.nextInt();
-            System.out.println("Index: " + interchange(list, n));
-        } while (n != 0);
-        sc.close();
     }
 }

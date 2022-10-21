@@ -79,9 +79,5 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] intlist = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1};
-        String[] stringlist = {"A", "C", "B", "D", "E"};
-        System.out.println(binarySearch(intlist, 6));
-        System.out.println(binarySearchString(stringlist, "B"));
     }
 }

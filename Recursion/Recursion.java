@@ -105,7 +105,5 @@ public class Recursion {
     }
 
     public static void main(String[] args) {
-        int[] arr = {8, 5, 2, 3, 100, 4, 5, 5, 10, 36};
-        System.out.println(largest(arr));
     }
 }

@@ -25,11 +25,24 @@ public class InsertionSort {
         }
     }
 
-    public static void main(String args[]) {
-        int arr[] = { 12, 11, 13, 5, 6 };
-        insertionSortSimple(arr);
-        for (int x : arr) {
-            System.out.println(x);
+    public static int median(int[] arr) {
+        boolean found = false;
+        for (int i = 1; i < arr.length && !found; i++) {
+            int key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j] > key) {
+                arr[j] = key;
+                j--;
+            }
+            arr[j + 1] = key;
+            if (i == arr.length / 2) {
+                found = true;
+            }
         }
+        return arr[arr.length / 2];
+    }
+
+
+    public static void main(String args[]) {
     }
 }

@@ -41,6 +41,5 @@ public class RecursionPermutation {
     }
 
     public static void main(String[] args) {
-        patternGenerator();
     }
 }
