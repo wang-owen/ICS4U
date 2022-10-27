@@ -1,5 +1,46 @@
 class Fraction {
-    int num, den;
+    private int num, den;
+
+    public Fraction(int num, int den) {
+        this.num = num;
+        if (den != 0) {
+            this.den = den;
+        } else {
+            this.den = 1;
+        }
+    }
+
+    public Fraction(Fraction f) {
+        this.num = f.getNumerator();
+        this.den = f.getDenominator();
+    }
+
+    public Fraction(double d) {
+        int counter = 0;
+        while (d % 1 != 0) {
+            d *= 10;
+            counter *= 10;
+        }
+        this.num = (int) d;
+        this.den = counter;
+
+    }
+
+    public int getNumerator() {
+        return num;
+    }
+
+    public int getDenominator() {
+        return den;
+    }
+
+    public void setNumerator(int n) {
+        num = n;
+    }
+
+    public void setDenominator(int n) {
+        den = n;
+    }
 
     public double size() {
         return Math.abs((double) num / den);
@@ -13,24 +54,19 @@ class Fraction {
     }
 
     public Fraction times(Fraction other) {
-        Fraction f = new Fraction();
-        f.num = this.num * other.num;
-        f.den = this.den * other.den;
-        return f;
+        return new Fraction(this.num * other.num, this.den * other.den);
     }
 
     public Fraction plus(Fraction other) {
-        Fraction f = new Fraction();
+        Fraction f;
         if (this.den == other.den) {
-            f.num = this.num + other.num;
-            f.den = this.den;
+            f = new Fraction(this.num + other.num, this.den);
         } else {
-            f.num = this.num * other.den + other.num + this.den;
-            f.den = this.den * other.den;
+            f = new Fraction(this.num * other.den + other.num * this.den, this.den * other.den);
         }
         return f;
     }
-    
+
     public void timesEquals(Fraction p) {
         this.num = this.num * p.den;
         this.den = this.den * p.den;
@@ -38,7 +74,7 @@ class Fraction {
 
     public void reduce() {
         int d = _gcd(this.num, this.den);
-     
+
         this.num = this.num / d;
         this.den = this.den / d;
     }
