@@ -1,6 +1,11 @@
 class Fraction {
     private int num, den;
 
+    public Fraction() {
+        this.num = 1;
+        this.den = 1;
+    }
+
     public Fraction(int num, int den) {
         this.num = num;
         if (den != 0) {
@@ -79,7 +84,7 @@ class Fraction {
         this.den = this.den / d;
     }
 
-    int _gcd(int x, int y) {
+    private int _gcd(int x, int y) {
         if (y == 0) {
             return x;
         }
