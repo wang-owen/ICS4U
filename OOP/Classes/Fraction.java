@@ -90,4 +90,33 @@ class Fraction {
         }
         return _gcd(y, x % y);
     }
+
+    public boolean equals(Fraction x) {
+        if (this.size() == x.size()) {
+            return true;
+        }
+        return false;
+    }
+
+    public String toString() {
+        return this.num + "/" + this.den;
+    }
+
+    public static Fraction product(Fraction f1, Fraction f2) {
+        return f1.times(f2);
+    }
+
+    public static Fraction abs(Fraction f) {
+        f.setNumerator(Math.abs(f.getNumerator()));
+        f.setDenominator(Math.abs(f.getDenominator()));
+
+        return f;
+    }
+
+    public static boolean isPositive(Fraction f) {
+        if (f.size() > 0) { 
+            return true;
+        }
+        return false;
+    }
 }
