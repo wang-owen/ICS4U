@@ -58,11 +58,8 @@ public class Circle {
         return false;
     }
 
-    public boolean equal(Circle c) {
-        if (this.radius() == c.radius()) {
-            return true;
-        }
-        return false;
+    public boolean equals(Circle c) {
+        return c != null && this.radius() == c.radius();
     }
 
     public String toString() {

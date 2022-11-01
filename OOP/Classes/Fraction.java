@@ -92,10 +92,7 @@ class Fraction {
     }
 
     public boolean equals(Fraction x) {
-        if (this.size() == x.size()) {
-            return true;
-        }
-        return false;
+        return x != null && this.size() == x.size();
     }
 
     public String toString() {
