@@ -5,6 +5,8 @@ public class Binder {
 
     public Binder() {
         this.sheets = 0;
+        this.label = "";
+        this.color = "";
     }
 
     public void addSheets(int x) {
@@ -17,6 +19,14 @@ public class Binder {
         } else {
             this.sheets -= x;
         }
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public double getBinderWeight() {
@@ -38,6 +48,6 @@ public class Binder {
     }
 
     public String toString() {
-        return String.format("Label: %s\nColor: %s\n# of sheets: %d\n", this.label, this.color, this.sheets);
+        return String.format("Label: %s\nColor: %s\n# of sheets: %d", this.label, this.color, this.sheets);
     }
 }
