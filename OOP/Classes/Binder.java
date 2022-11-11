@@ -1,12 +1,12 @@
 public class Binder {
     private int sheets;
     private String label, color;
-    private static final double sheet_weight = 0.01, binder_weight = 1;
+    private static final double SHEET_WEIGHT = 0.01, BINDER_WEIGHT = 1;
 
-    public Binder() {
-        this.sheets = 0;
-        this.label = "";
-        this.color = "";
+    public Binder(int sheets, String label, String color) {
+        this.sheets = sheets;
+        this.label = label;
+        this.color = color;
     }
 
     public void addSheets(int x) {
@@ -21,20 +21,12 @@ public class Binder {
         }
     }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
     public double getBinderWeight() {
-        return binder_weight;
+        return BINDER_WEIGHT;
     }
 
     public double getWeight() {
-        return binder_weight + sheet_weight * this.sheets;
+        return BINDER_WEIGHT + SHEET_WEIGHT * this.sheets;
     }
 
     public int compareTo(Binder b) {

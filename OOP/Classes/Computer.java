@@ -15,7 +15,7 @@ public class Computer {
     }
 
     public String toString() {
-        return String.format("Manufacturer: %s\nSerial: %d\nProcessor Speed: %.1f\nRAM: %d\nYear Made: %d\nYear Purchased: %d\nWarranty Expiration: %d\n", manufacturer, serial, speed, ram, year_made, year_purchased, warranty_expiration);
+        return String.format("Manufacturer: %s\nSerial: %s\nProcessor Speed: %.1f\nRAM: %d\nYear Made: %d\nYear Purchased: %d\nWarranty Expiration: %d\n", manufacturer, serial, speed, ram, year_made, year_purchased, warranty_expiration);
     }
 
     public Computer compareRAM(Computer other) {
@@ -25,8 +25,20 @@ public class Computer {
         return this;
     }
 
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public String getSerial() {
+        return serial;
+    }
+
     public int getYearMade() {
         return year_made;
+    }
+
+    public int getExpiry() {
+        return warranty_expiration;
     }
 
     public int getRAM() {
