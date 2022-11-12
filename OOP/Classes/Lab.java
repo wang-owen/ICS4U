@@ -25,25 +25,22 @@ public class Lab {
     public int avgAge() {
         int age = 0;
         for (int i = 0; i < num_installed; i++) {
-            age += YEAR - computers[i].getYearMade();
+            age += computers[i].getAge();
         }
         return age / num_installed;
     }
 
     public Computer newestComputer() {
         Computer latestComputer = computers[0];
-        for (int i = 0; i < num_installed; i++) {
-            int latest = computers[0].getYearMade();
-            if (computers[i].getYearMade() > latest) {
-                latestComputer = computers[i];
-            }
+        for (int i = 1; i < num_installed; i++) {
+            latestComputer = latestComputer.compareAge(computers[i]);
         }
         return latestComputer;
     }
 
     public Computer fastestComputer() {
         Computer fastestComputer = computers[0];
-        for (int i = 0; i < num_installed - 1; i++) {
+        for (int i = 1; i < num_installed - 1; i++) {
             fastestComputer = computers[i].compareSpeed(computers[i + 1]);
         }
         return fastestComputer;
@@ -51,12 +48,8 @@ public class Lab {
 
     public Computer highestRAM() {
         Computer fastestRAM = computers[0];
-        int fastest = computers[0].getRAM();
-        for (int i = 0; i < num_installed; i++) {
-            if (computers[i].getRAM() > fastest) {
-                fastestRAM = computers[i];
-                fastest = computers[i].getRAM();
-            }
+        for (int i = 1; i < num_installed; i++) {
+            fastestRAM = fastestRAM.compareRAM(computers[i]);
         }
         return fastestRAM;
     }
@@ -72,7 +65,13 @@ public class Lab {
     }
 
     public Computer[] getExpiring() {
-        Computer[] arr = new Computer[num_installed];
+        int n = 0;
+        for (int i = 0; i < num_installed; i++) {
+            if (computers[i].getExpiry() == YEAR + 1) {
+                n++;
+            }
+        }
+        Computer[] arr = new Computer[n];
         for (int i = 0; i < num_installed; i++) {
             if (computers[i].getExpiry() == YEAR + 1) {
                 arr[i] = computers[i];

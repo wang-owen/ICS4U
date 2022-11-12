@@ -1,6 +1,7 @@
 public class Computer {
     private String manufacturer, serial;
     private int year_made, year_purchased, ram, warranty_expiration;
+    private static final int YEAR = 2022;
     private double speed;
 
     public Computer(String manufacturer, String serial, double speed, int ram, int year_made, int year_purchased,
@@ -15,14 +16,9 @@ public class Computer {
     }
 
     public String toString() {
-        return String.format("Manufacturer: %s\nSerial: %s\nProcessor Speed: %.1f\nRAM: %d\nYear Made: %d\nYear Purchased: %d\nWarranty Expiration: %d\n", manufacturer, serial, speed, ram, year_made, year_purchased, warranty_expiration);
-    }
-
-    public Computer compareRAM(Computer other) {
-        if (other.ram > this.ram) {
-            return other;
-        }
-        return this;
+        return String.format(
+                "Manufacturer: %s\nSerial: %s\nProcessor Speed: %.1f\nRAM: %d\nYear Made: %d\nYear Purchased: %d\nWarranty Expiration: %d\n",
+                manufacturer, serial, speed, ram, year_made, year_purchased, warranty_expiration);
     }
 
     public String getManufacturer() {
@@ -35,6 +31,10 @@ public class Computer {
 
     public int getYearMade() {
         return year_made;
+    }
+
+    public int getAge() {
+        return YEAR - year_made;
     }
 
     public int getExpiry() {
@@ -53,7 +53,14 @@ public class Computer {
     }
 
     public Computer compareAge(Computer other) {
-        if (other.year_made < this.year_made) {
+        if (other.year_made > this.year_made) {
+            return other;
+        }
+        return this;
+    }
+
+    public Computer compareRAM(Computer other) {
+        if (other.ram > this.ram) {
             return other;
         }
         return this;
