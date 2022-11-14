@@ -28,7 +28,7 @@ public class Closet {
         while (swap) {
             swap = false;
             for (int i = 0; i < end; i++) {
-                if (shirts[i].getAge() > shirts[i + 1].getAge()) {
+                if (shirts[i].compareAge(shirts[i + 1]) == shirts[i + 1]) {
                     Shirt temp = shirts[i];
                     shirts[i] = shirts[i + 1];
                     shirts[i + 1] = temp;
@@ -67,7 +67,7 @@ public class Closet {
         while (swap) {
             swap = false;
             for (int i = 0; i < end; i++) {
-                if (shirts[i].getSize() < shirts[i + 1].getSize()) {
+                if (shirts[i].compareSize(shirts[i + 1]) == shirts[i + 1]) {
                     Shirt temp = shirts[i];
                     shirts[i] = shirts[i + 1];
                     shirts[i + 1] = temp;
