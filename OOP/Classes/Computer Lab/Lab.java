@@ -40,8 +40,8 @@ public class Lab {
 
     public Computer fastestComputer() {
         Computer fastestComputer = computers[0];
-        for (int i = 1; i < num_installed - 1; i++) {
-            fastestComputer = computers[i].compareSpeed(computers[i + 1]);
+        for (int i = 1; i < num_installed; i++) {
+            fastestComputer = computers[i].compareSpeed(computers[i - 1]);
         }
         return fastestComputer;
     }
