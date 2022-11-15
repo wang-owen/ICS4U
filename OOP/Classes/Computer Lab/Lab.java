@@ -28,17 +28,17 @@ public class Lab {
      * @param ram                 Ram
      * @param year_made           Year made
      * @param year_purchased      Year purchased
-     * @param warranty_expiration Warranty expiration year
+     * @param warrantyExpiration Warranty expiration year
      * @return Whether computer was successfully installed.
      */
     public boolean installComputer(String manufacturer, String serial, double speed, int ram, int year_made,
             int year_purchased,
-            int warranty_expiration) {
+            int warrantyExpiration) {
         if (num_installed >= maxCapacity) {
             return false;
         }
         computers[num_installed] = new Computer(manufacturer, serial, speed, ram, year_made, year_purchased,
-                warranty_expiration);
+                warrantyExpiration);
         num_installed++;
         return true;
     }

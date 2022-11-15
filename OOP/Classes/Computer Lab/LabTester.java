@@ -24,9 +24,9 @@ public class LabTester {
                 int year_purchased = Integer.parseInt(br.readLine());
                 double speed = Double.parseDouble(br.readLine());
                 int ram = Integer.parseInt(br.readLine());
-                int warranty_expiration = Integer.parseInt(br.readLine());
+                int warrantyExpiration = Integer.parseInt(br.readLine());
                 // install computer using installComputer class in Lab.java
-                lab.installComputer(manufacturer, serial, speed, ram, year_made, year_purchased, warranty_expiration);
+                lab.installComputer(manufacturer, serial, speed, ram, year_made, year_purchased, warrantyExpiration);
             }
             br.close();
 

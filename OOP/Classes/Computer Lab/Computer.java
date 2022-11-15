@@ -13,7 +13,17 @@ public class Computer {
     private double speed;
     private static final int YEAR = 2022;
 
-    // Constructor
+    /**
+     * Computer constructor: initializes a computer object
+     * 
+     * @param manufacturer       Computer manufacturer
+     * @param serial             Serial # of Computer
+     * @param speed              Processor speed
+     * @param ram                Ram
+     * @param year_made          Year made
+     * @param year_purchased     Year purchased
+     * @param warrantyExpiration Warranty expiration year
+     */
     public Computer(String manufacturer, String serial, double speed, int ram, int yearMade, int yearPurchased,
             int warrantyExpire) {
         this.manufacturer = manufacturer;
@@ -94,7 +104,12 @@ public class Computer {
                 manufacturer, serial, speed, ram, yearMade, yearPurchased, warrantyExpire);
     }
 
-    // compareSpeed: compare speed of implicit and explicit Computers
+    /**
+     * compareSpeed: compares speed of two Computer objects
+     * 
+     * @param other Computer to compare to
+     * @return Computer with faster CPU
+     */
     public Computer compareSpeed(Computer other) {
         if (other.speed > this.speed) {
             return other;
@@ -102,7 +117,12 @@ public class Computer {
         return this;
     }
 
-    // compareAge: compare age of implicit and explicit Computers.
+    /**
+     * compareAge: compares the age of two Computer objects
+     * 
+     * @param other Computer to compare to
+     * @return older computer
+     */
     public Computer compareAge(Computer other) {
         if (other.yearMade > this.yearMade) {
             return other;
@@ -110,7 +130,12 @@ public class Computer {
         return this;
     }
 
-    // compareRAM: compare ram of implicit and explicit Computers.
+    /**
+     * compareRAM: compares the RAM of two Computer objects
+     * 
+     * @param other Computer to compare to
+     * @return Computer with larger RAM
+     */
     public Computer compareRAM(Computer other) {
         if (other.ram > this.ram) {
             return other;
@@ -118,7 +143,11 @@ public class Computer {
         return this;
     }
 
-    // isExpiring: determine if computer is expiring next year
+    /**
+     * isExpiring: determines if Computer is expiring next year
+     * 
+     * @return boolean stating whether it is or is not expiring next year
+     */
     public boolean isExpiring() {
         return warrantyExpire == YEAR + 1;
     }
