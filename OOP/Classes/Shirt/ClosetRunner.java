@@ -5,9 +5,8 @@ public class ClosetRunner {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter max closet capacity: ");
-        int maxCapacity = sc.nextInt();
+        Closet closet = new Closet(sc.nextInt());
         sc.nextLine();
-        Closet closet = new Closet(maxCapacity);
 
         try {
             BufferedReader br = new BufferedReader(new FileReader("boyShirts.txt"));
@@ -16,8 +15,7 @@ public class ClosetRunner {
                 closet.addShirt(br.readLine(), Integer.parseInt(br.readLine()), Integer.parseInt(br.readLine()));
             }
             br.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(e);
         }
 
@@ -37,9 +35,9 @@ public class ClosetRunner {
         }
 
         System.out.print("\nEnter size: ");
-        System.out.printf("There are %d shirts in that size.\n\n", closet.getNumSize(sc.nextInt()));
-
+        System.out.printf("There are %d shirts in that size.\n\n", closet.sizeCount(sc.nextInt()));
         System.out.println(closet.getBiggest());
+
         sc.close();
     }
 }
