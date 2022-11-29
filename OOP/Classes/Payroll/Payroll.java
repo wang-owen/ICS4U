@@ -1,4 +1,5 @@
 package OOP.Classes.Payroll;
+
 import java.io.*;
 
 public class Payroll {
@@ -20,7 +21,7 @@ public class Payroll {
     }
 
     public boolean enterSickDay(int days, int employeeNumber) {
-        for (int i = 0; i < staffList.length; i++ ){
+        for (int i = 0; i < staffList.length; i++) {
             if (staffList[i].employeeNumber == employeeNumber) {
                 staffList[i].deductSickDay(days);
                 return true;
@@ -44,19 +45,17 @@ public class Payroll {
                     bw.write("Full-time\n");
                     bw.write(staffList[i].firstName + "\n");
                     bw.write(staffList[i].lastName + "\n");
-                    bw.write(((FullTimeStaff)staffList[i]).getYearlySalary() + "\n");
-                }
-                else {
+                    bw.write(((FullTimeStaff) staffList[i]).getYearlySalary() + "\n");
+                } else {
                     bw.write("Part-time\n");
                     bw.write(staffList[i].firstName + "\n");
                     bw.write(staffList[i].lastName + "\n");
-                    bw.write(((PartTimeStaff)staffList[i]).getNumHoursAssigned() + "\n");
-                    bw.write(((PartTimeStaff)staffList[i]).getHourlyRate() + "\n");
+                    bw.write(((PartTimeStaff) staffList[i]).getNumHoursAssigned() + "\n");
+                    bw.write(((PartTimeStaff) staffList[i]).getHourlyRate() + "\n");
                 }
             }
             bw.close();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             System.out.println(e);
         }
     }
@@ -74,8 +73,7 @@ public class Payroll {
                 if (type.equals("Full-time")) {
                     double yearlySalary = Double.parseDouble(br.readLine());
                     staffList[i] = new FullTimeStaff(employeeNumber, firstName, lastName, yearlySalary);
-                }
-                else {
+                } else {
                     double numHoursAssigned = Double.parseDouble(br.readLine());
                     double hourlyRate = Double.parseDouble(br.readLine());
                     staffList[i] = new PartTimeStaff(employeeNumber, firstName, lastName, numHoursAssigned, hourlyRate);
@@ -83,8 +81,7 @@ public class Payroll {
             }
             br.close();
             return true;
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             return false;
         }
     }
@@ -94,7 +91,7 @@ public class Payroll {
         double n = 0;
         for (int i = 0; i < staffList.length; i++) {
             if (staffList[i] instanceof FullTimeStaff) {
-                total += ((FullTimeStaff)staffList[i]).getYearlySalary();
+                total += ((FullTimeStaff) staffList[i]).getYearlySalary();
                 n++;
             }
         }
@@ -106,7 +103,7 @@ public class Payroll {
         double n = 0;
         for (int i = 0; i < staffList.length; i++) {
             if (staffList[i] instanceof PartTimeStaff) {
-                total += ((PartTimeStaff)staffList[i]).getHourlyRate();
+                total += ((PartTimeStaff) staffList[i]).getHourlyRate();
                 n++;
             }
         }
@@ -114,20 +111,26 @@ public class Payroll {
     }
 
     public FullTimeStaff mostAbsentFullTime() {
-        FullTimeStaff mostAbsent = (FullTimeStaff)staffList[0];
+        FullTimeStaff mostAbsent = null;
         for (int i = 1; i < staffList.length; i++) {
             if (staffList[i] instanceof FullTimeStaff) {
-                mostAbsent = mostAbsent.compareToSickDay((FullTimeStaff)staffList[i]);
+                if (mostAbsent == null) {
+                    mostAbsent = (FullTimeStaff) staffList[i];
+                }
+                mostAbsent = mostAbsent.compareToSickDay((FullTimeStaff) staffList[i]);
             }
         }
         return mostAbsent;
     }
 
     public PartTimeStaff mostAbsentPartTime() {
-        PartTimeStaff mostAbsent = (PartTimeStaff)staffList[0];
+        PartTimeStaff mostAbsent = null;
         for (int i = 1; i < staffList.length; i++) {
             if (staffList[i] instanceof PartTimeStaff) {
-                mostAbsent = mostAbsent.compareToSickDay((PartTimeStaff)staffList[i]);
+                if (mostAbsent == null) {
+                    mostAbsent = (PartTimeStaff) staffList[i];
+                }
+                mostAbsent = mostAbsent.compareToSickDay((PartTimeStaff) staffList[i]);
             }
         }
         return mostAbsent;
@@ -136,7 +139,7 @@ public class Payroll {
     public void yearlySickDayReset() {
         for (int i = 0; i < staffList.length; i++) {
             if (staffList[i] instanceof FullTimeStaff) {
-                ((FullTimeStaff)staffList[i]).resetSickDay();
+                ((FullTimeStaff) staffList[i]).resetSickDay();
             }
         }
     }
@@ -144,7 +147,7 @@ public class Payroll {
     public void monthlySickDayReset() {
         for (int i = 0; i < staffList.length; i++) {
             if (staffList[i] instanceof PartTimeStaff) {
-                ((PartTimeStaff)staffList[i]).resetSickDay();
+                ((PartTimeStaff) staffList[i]).resetSickDay();
             }
         }
     }

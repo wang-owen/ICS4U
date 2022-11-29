@@ -6,7 +6,8 @@ public class PartTimeStaff extends Employee {
     private double hourlyRate;
     private double sickDaysTaken;
 
-    public PartTimeStaff(int employeeNumber, String firstName, String lastName, double numHoursAssigned, double hourlyRate) {
+    public PartTimeStaff(int employeeNumber, String firstName, String lastName, double numHoursAssigned,
+            double hourlyRate) {
         super(employeeNumber, firstName, lastName);
         this.numHoursAssigned = numHoursAssigned;
         this.hourlyRate = hourlyRate;
