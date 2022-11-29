@@ -11,6 +11,10 @@ public class FullTimeStaff extends Employee {
         sickDaysLeft = yearlySickDay;
     }
 
+    public double getYearlySalary() {
+        return yearlySalary;
+    }
+
     public double pay() {
         return yearlySalary / 12;
     }
@@ -40,6 +44,6 @@ public class FullTimeStaff extends Employee {
     }
 
     public String toString() {
-        return String.format(super.toString() + "Full Time");
+        return String.format("Full-time\n" + super.toString());
     }
 }

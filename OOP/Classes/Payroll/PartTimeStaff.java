@@ -1,15 +1,24 @@
 package OOP.Classes.Payroll;
 
-public class PartTimeStaff {
+public class PartTimeStaff extends Employee {
     private final double HOURS = 24;
     private double numHoursAssigned;
     private double hourlyRate;
     private double sickDaysTaken;
 
-    public PartTimeStaff(double numHoursAssigned, double hourlyRate) {
+    public PartTimeStaff(int employeeNumber, String firstName, String lastName, double numHoursAssigned, double hourlyRate) {
+        super(employeeNumber, firstName, lastName);
         this.numHoursAssigned = numHoursAssigned;
         this.hourlyRate = hourlyRate;
         sickDaysTaken = 0;
+    }
+
+    public double getNumHoursAssigned() {
+        return numHoursAssigned;
+    }
+
+    public double getHourlyRate() {
+        return hourlyRate;
     }
 
     public double pay() {
@@ -38,6 +47,6 @@ public class PartTimeStaff {
     }
 
     public String toString() {
-        return String.format(super.toString() + "Part time");
+        return String.format("Part-time\n" + super.toString());
     }
 }

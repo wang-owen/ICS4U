@@ -20,6 +20,6 @@ public abstract class Employee {
     abstract void printPayStub();
 
     public String toString() {
-        return String.format("%s, %s\nEmployee Number: %d", lastName, firstName, employeeNumber);
+        return String.format("%s %s\nEmployee Number: %d", firstName, lastName, employeeNumber);
     }
 }
