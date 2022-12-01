@@ -1,4 +1,4 @@
-package OOP.Classes.Payroll;
+package OOP.Payroll;
 
 import java.io.*;
 
@@ -139,7 +139,7 @@ public class Payroll {
     public void yearlySickDayReset() {
         for (int i = 0; i < staffList.length; i++) {
             if (staffList[i] instanceof FullTimeStaff) {
-                ((FullTimeStaff) staffList[i]).resetSickDay();
+                staffList[i].resetSickDay();
             }
         }
     }
@@ -147,7 +147,7 @@ public class Payroll {
     public void monthlySickDayReset() {
         for (int i = 0; i < staffList.length; i++) {
             if (staffList[i] instanceof PartTimeStaff) {
-                ((PartTimeStaff) staffList[i]).resetSickDay();
+                staffList[i].resetSickDay();
             }
         }
     }

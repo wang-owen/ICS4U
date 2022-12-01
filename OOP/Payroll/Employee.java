@@ -1,4 +1,4 @@
-package OOP.Classes.Payroll;
+package OOP.Payroll;
 
 public abstract class Employee {
     int employeeNumber;

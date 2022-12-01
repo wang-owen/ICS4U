@@ -1,4 +1,4 @@
-package OOP.Classes.Payroll;
+package OOP.Payroll;
 
 public class PartTimeStaff extends Employee {
     private final double HOURS = 24;

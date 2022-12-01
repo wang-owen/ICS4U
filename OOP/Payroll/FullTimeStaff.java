@@ -1,4 +1,4 @@
-package OOP.Classes.Payroll;
+package OOP.Payroll;
 
 public class FullTimeStaff extends Employee {
     private static final double yearlySickDay = 20;
