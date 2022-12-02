@@ -24,6 +24,12 @@ public class PropertyDatabase {
     }
 
     public double averagePriceInZone(String zoneCode) {
-        
+        int total = 0;
+        for (int i = 0; i < numProperty; i++) {
+            if (list[i].getZoneCode().equals(zoneCode)) {
+                total += (list[i]).getPrice();
+            }
+        }
+        return total / numProperty;
     }
 }

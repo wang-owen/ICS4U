@@ -11,6 +11,14 @@ public class PrimarySpec {
         this.numBedRoom = numBedRoom;
     }
 
+    public String getZoneCode() {
+        return zoneCode;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
     public boolean matchSpec(PrimarySpec other) {
         if (this.zoneCode.equals(other.zoneCode) && this.price <= other.price && this.size >= other.size
                 && this.numBedRoom >= other.numBedRoom) {
