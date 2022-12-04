@@ -10,8 +10,7 @@ public class PropertyDatabase {
     }
 
     public boolean loadProperty() {
-        boolean vacuum, ac, fireplace, hardwood, basement;
-        boolean pool, exRoom, locker, hydroIncluded, cableIncluded;
+        boolean spec1, spec2, spec3, spec4, spec5;
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
             int n = Integer.parseInt(br.readLine());
@@ -25,65 +24,45 @@ public class PropertyDatabase {
                 double price = Double.parseDouble(br.readLine());
                 int size = Integer.parseInt(br.readLine());
                 int numBedRoom = Integer.parseInt(br.readLine());
+                String s1 = br.readLine();
+                String s2 = br.readLine();
+                String s3 = br.readLine();
+                String s4 = br.readLine();
+                String s5 = br.readLine();
+                if (s1.equals("Y")) {
+                    spec1 = true;
+                } else {
+                    spec1 = false;
+                }
+                if (s2.equals("Y")) {
+                    spec2 = true;
+                } else {
+                    spec2 = false;
+                }
+                if (s3.equals("Y")) {
+                    spec3 = true;
+                } else {
+                    spec3 = false;
+                }
+                if (s4.equals("Y")) {
+                    spec4 = true;
+                } else {
+                    spec4 = false;
+                }
+                if (s5.equals("Y")) {
+                    spec5 = true;
+                } else {
+                    spec5 = false;
+                }
                 if (type.equals("house")) {
-                    if (br.readLine().equals("Y")) {
-                        vacuum = true;
-                    } else {
-                        vacuum = false;
-                    }
-                    if (br.readLine().equals("Y")) {
-                        ac = true;
-                    } else {
-                        ac = false;
-                    }
-                    if (br.readLine().equals("Y")) {
-                        fireplace = true;
-                    } else {
-                        fireplace = false;
-                    }
-                    if (br.readLine().equals("Y")) {
-                        hardwood = true;
-                    } else {
-                        hardwood = false;
-                    }
-                    if (br.readLine().equals("Y")) {
-                        basement = true;
-                    } else {
-                        basement = false;
-                    }
                     list[numProperty] = (Property) (new House(id, address,
                             new PrimarySpec(zoneCode, price, size, numBedRoom),
-                            new HouseSpec(vacuum, ac, fireplace, hardwood, basement)));
+                            new HouseSpec(spec1, spec2, spec3, spec4, spec5)));
                     numProperty++;
                 } else {
-                    if (br.readLine().equals("Y")) {
-                        pool = true;
-                    } else {
-                        pool = false;
-                    }
-                    if (br.readLine().equals("Y")) {
-                        exRoom = true;
-                    } else {
-                        exRoom = false;
-                    }
-                    if (br.readLine().equals("Y")) {
-                        locker = true;
-                    } else {
-                        locker = false;
-                    }
-                    if (br.readLine().equals("Y")) {
-                        hydroIncluded = true;
-                    } else {
-                        hydroIncluded = false;
-                    }
-                    if (br.readLine().equals("Y")) {
-                        cableIncluded = true;
-                    } else {
-                        cableIncluded = false;
-                    }
                     list[numProperty] = (Property) (new Condo(id, address,
                             new PrimarySpec(zoneCode, price, size, numBedRoom),
-                            new CondoSpec(pool, exRoom, locker, hydroIncluded, cableIncluded)));
+                            new CondoSpec(spec1, spec2, spec3, spec4, spec5)));
                     numProperty++;
                 }
             }
