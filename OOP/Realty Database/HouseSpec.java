@@ -1,9 +1,9 @@
 public class HouseSpec extends SecondarySpec {
-    private boolean vacuum;
-    private boolean ac;
-    private boolean fireplace;
-    private boolean hardwood;
-    private boolean basement;
+    boolean vacuum;
+    boolean ac;
+    boolean fireplace;
+    boolean hardwood;
+    boolean basement;
 
     public HouseSpec(boolean vacuum, boolean ac, boolean fireplace, boolean hardwood, boolean basement) {
         this.vacuum = vacuum;

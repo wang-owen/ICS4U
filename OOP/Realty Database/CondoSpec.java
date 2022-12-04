@@ -1,9 +1,9 @@
 public class CondoSpec extends SecondarySpec {
-    private boolean pool;
-    private boolean exRoom;
-    private boolean locker;
-    private boolean hydroIncluded;
-    private boolean cableIncluded;
+    boolean pool;
+    boolean exRoom;
+    boolean locker;
+    boolean hydroIncluded;
+    boolean cableIncluded;
 
     public CondoSpec(boolean pool, boolean exRoom, boolean locker, boolean hydroIncluded, boolean cableIncluded) {
         this.pool = pool;
